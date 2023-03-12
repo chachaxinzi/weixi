@@ -1,6 +1,6 @@
 <template>
 	<view>
-		home123
+		home123nih
 	</view>
 </template>
 
