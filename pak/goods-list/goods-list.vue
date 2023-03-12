@@ -1,6 +1,6 @@
 <template>
 	<view>
-		goods-list
+		商品列表
 	</view>
 </template>
 

@@ -1,7 +1,7 @@
 <template>
 	<view>
 		<!-- 轮播图区域 -->
-		<swiper :indicator-dots="true" :circular="true" class="swiper" >
+		<swiper :indicator-dots="true" :circular="true" class="swiper" :autoplay="true" duration="500">
 			<swiper-item v-for="(item ,i) in swiperList" :key="i" class="swiper-item">
 				<navigator :url="'../../pak/goods-detail/goods-detail?goods_id='+ item.goods_id">
 					<image :src="item.image_src" class="swiper-item-img"> </image>
