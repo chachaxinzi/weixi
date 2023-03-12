@@ -71,6 +71,34 @@
 			"selectedIconPath": "static/tab_icons/my-active.png"
 			
 		}]
-	}
+	},
+	"subPackages": [
+		//创建分包
+		{
+			"root": "pak",
+			"pages": [
+				
+			{
+                    "path" : "goods-detail/goods-detail",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "",
+                    "enablePullDownRefresh": false
+                }
+                
+                }
+                ,{
+                    "path" : "goods-list/goods-list",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "",
+                    "enablePullDownRefresh": false
+                }
+                
+                }
+            ]
+			
+		}
+	]
 	
 }
