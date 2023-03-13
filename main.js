@@ -1,4 +1,5 @@
 import App from './App'
+//第三方网络请求包
  import {$http} from "@escook/request-miniprogram"
  uni.$http = $http
  $http.baseUrl = 'https://www.uinav.com'
@@ -11,7 +12,16 @@ import App from './App'
  $http.afterRequest = function () {
    wx.hideLoading()
  }
+//注册组件
+import search from './components/search/search'
+import icon from './uni_modules/uni-icons/components/uni-icons/uni-icons'
+import searchpage from './uni_modules/uni-search-bar/components/uni-search-bar/uni-search-bar'
+import tag from "./uni_modules/uni-tag/components/uni-tag/uni-tag"
 
+Vue.component('search',search)
+Vue.component('uni-icons',icon)
+Vue.component('uni-search-bar',searchpage)
+Vue.component('uni-tag',tag)
 // #ifndef VUE3
 import Vue from 'vue'
 Vue.config.productionTip = false

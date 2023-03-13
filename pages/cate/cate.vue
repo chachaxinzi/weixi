@@ -1,5 +1,10 @@
 <template>
 	<view>
+		<!-- 搜索 -->
+		<view>
+			<search @click=clickHandler></search>
+		</view>
+		
 		<!-- 滚动页面容器 -->
 		<view class="scroll-box">
 			<!-- 左侧滚动盒子 -->
@@ -55,7 +60,7 @@
 			getHeigth() {
 				uni.getSystemInfo({
 					success: (res) => {
-						this.wh = res.windowHeight
+						this.wh = res.windowHeight-50
 						return
 
 					}
@@ -81,6 +86,12 @@
 			goGoodsList(item3){
 				uni.navigateTo({
 					url:'/pak/goods-list/goods-list?cid='+item3.cat_id
+				})
+			},
+			//点击搜索页
+			clickHandler(){
+				uni.navigateTo({
+					url:"/pak/searchPage/searchPage"
 				})
 			}
 

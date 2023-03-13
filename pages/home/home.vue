@@ -1,5 +1,10 @@
 <template>
 	<view>
+		<!-- s搜索 -->
+		<view  class="search">
+			<search @click="clickhandler"></search>
+		</view>
+		
 		<!-- 轮播图区域 -->
 		<swiper :indicator-dots="true" :circular="true" class="swiper" :autoplay="true" duration="500">
 			<swiper-item v-for="(item ,i) in swiperList" :key="i" class="swiper-item">
@@ -91,12 +96,22 @@
 				})
 			})
 			this.floorList=res.message
+			},
+			clickhandler(){
+				uni.navigateTo({
+					url:"/pak/searchPage/searchPage"
+				})
 			}
 		}
 	}
 </script>
 
 <style lang="scss">
+	.search{
+		position: sticky;
+		top: 0;
+		z-index: 999;
+	}
 	.swiper{
 		height: 330rpx;
 		.swiper-item,{
