@@ -17,11 +17,12 @@ import search from './components/search/search'
 import icon from './uni_modules/uni-icons/components/uni-icons/uni-icons'
 import searchpage from './uni_modules/uni-search-bar/components/uni-search-bar/uni-search-bar'
 import tag from "./uni_modules/uni-tag/components/uni-tag/uni-tag"
-
+import goodsItem from './components/goods-list-item/goods-list-item'
 Vue.component('search',search)
 Vue.component('uni-icons',icon)
 Vue.component('uni-search-bar',searchpage)
 Vue.component('uni-tag',tag)
+Vue.component('goods-list-item',goodsItem)
 // #ifndef VUE3
 import Vue from 'vue'
 Vue.config.productionTip = false
