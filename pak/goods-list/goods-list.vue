@@ -25,44 +25,47 @@
 				goodsList:[],
 				//自定义商品列表
 				goodslist2:[{
-					goods_id:57332,
+					goods_id:395,
 					goods_small_logo:'http://image4.suning.cn/uimg/b2c/newcatentries/0070083251-000000000168369396_1_400x400.jpg',
 					goods_name:'400毫升 海鲜食品冷藏冰包 注水冰袋医用冰袋户外冷藏保鲜熟食冷藏反复使用（10个装）',
 					goods_price:'14'
 				},{
-					goods_id: 57194,
+					goods_id: 394,
 					goods_small_logo:'http://image4.suning.cn/uimg/b2c/newcatentries/0070083251-000000000168369396_1_400x400.jpg',
 					goods_name:'400毫升 海鲜食品冷藏冰包 注水冰袋医用冰袋户外冷藏保鲜熟食冷藏反复使用（10个装）',
 					goods_price:'14'
 				},{
-					goods_id: 57194,
+					goods_id: 393,
 					goods_small_logo:'http://image4.suning.cn/uimg/b2c/newcatentries/0070083251-000000000168369396_1_400x400.jpg',
 					goods_name:'400毫升 海鲜食品冷藏冰包 注水冰袋医用冰袋户外冷藏保鲜熟食冷藏反复使用（10个装）',
 					goods_price:'14'
 				},{
-					goods_id: 57194,
+					goods_id: 392,
 					goods_small_logo:'http://image4.suning.cn/uimg/b2c/newcatentries/0070083251-000000000168369396_1_400x400.jpg',
 					goods_name:'400毫升 海鲜食品冷藏冰包 注水冰袋医用冰袋户外冷藏保鲜熟食冷藏反复使用（10个装）',
 					goods_price:'14'
 				},{
-					goods_id:57332,
+					goods_id:391,
 					goods_small_logo:'http://image4.suning.cn/uimg/b2c/newcatentries/0070083251-000000000168369396_1_400x400.jpg',
 					goods_name:'400毫升 海鲜食品冷藏冰包 注水冰袋医用冰袋户外冷藏保鲜熟食冷藏反复使用（10个装）',
 					goods_price:'14'
 				},{
-					goods_id:57332,
+					goods_id:390,
 					goods_small_logo:'http://image4.suning.cn/uimg/b2c/newcatentries/0070083251-000000000168369396_1_400x400.jpg',
 					goods_name:'400毫升 海鲜食品冷藏冰包 注水冰袋医用冰袋户外冷藏保鲜熟食冷藏反复使用（10个装）',
 					goods_price:'14'
 				},{
+					goods_id:389,
 					goods_small_logo:'http://image4.suning.cn/uimg/b2c/newcatentries/0070083251-000000000168369396_1_400x400.jpg',
 					goods_name:'400毫升 海鲜食品冷藏冰包 注水冰袋医用冰袋户外冷藏保鲜熟食冷藏反复使用（10个装）',
 					goods_price:'14'
 				},{
+					goods_id:388,
 					goods_small_logo:'http://image4.suning.cn/uimg/b2c/newcatentries/0070083251-000000000168369396_1_400x400.jpg',
 					goods_name:'400毫升 海鲜食品冷藏冰包 注水冰袋医用冰袋户外冷藏保鲜熟食冷藏反复使用（10个装）',
 					goods_price:'14'
 				},{
+					goods_id:387,
 					goods_small_logo:'http://image4.suning.cn/uimg/b2c/newcatentries/0070083251-000000000168369396_1_400x400.jpg',
 					goods_name:'400毫升 海鲜食品冷藏冰包 注水冰袋医用冰袋户外冷藏保鲜熟食冷藏反复使用（10个装）',
 					goods_price:'14'
@@ -73,8 +76,8 @@
 		},
 		
 		onLoad(options) {
-			this.query.query = options.query
-			this.query.cid = options.cid
+			this.query.query = options.query || ''
+			this.query.cid = options.cid || ''
 			this.getGoodsList()
 		},
 		methods: {
