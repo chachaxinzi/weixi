@@ -2,7 +2,7 @@
 	<view>
 		<!-- 搜索 -->
 		<view>
-			<search @click=clickHandler></search>
+			<search @click="clickHandler" ></search>
 		</view>
 		
 		<!-- 滚动页面容器 -->
@@ -35,7 +35,9 @@
 </template>
 
 <script>
+import {mapGetters} from "vuex"
 	export default {
+		
 		data() {
 			return {
 				//窗口的可使用高度
@@ -55,7 +57,24 @@
 			this.getHeigth()
 			this.getScrollList()
 		},
+		computed:{
+			...mapGetters('cart',['total'])
+		},
+		watch: {
+			total() {
+				this.setBage()
+			}
+		},
+		onShow() {
+			this.setBage()
+		},
 		methods: {
+			setBage(){
+				uni.setTabBarBadge({
+					index:2,
+					text:this.total+''
+				})
+			},
 			//获取页面可使用的高度
 			getHeigth() {
 				uni.getSystemInfo({

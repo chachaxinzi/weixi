@@ -41,6 +41,10 @@
 </template>
 
 <script>
+	import {
+		mapMutations,
+		mapGetters
+	} from 'vuex'
 	export default {
 		data() {
 			return {
@@ -50,29 +54,33 @@
 				},
 				//商品详情列表
 				goodsDetailList: {},
-				 options: [ {
-							icon: 'shop',
-							text: '店铺',
-							
-							infoBackgroundColor:'#007aff',
-							infoColor:"red"
-						}, {
-							icon: 'cart',
-							text: '购物车',
-							info: 2
-						}],
-					    buttonGroup: [{
-					      text: '加入购物车',
-					      backgroundColor: '#ff0000',
-					      color: '#fff'
-					    },
-					    {
-					      text: '立即购买',
-					      backgroundColor: '#ffa200',
-					      color: '#fff'
-					    }
-					    ]
+				options: [{
+					icon: 'shop',
+					text: '店铺',
+
+					infoBackgroundColor: '#007aff',
+					infoColor: "red"
+				}, {
+					icon: 'cart',
+					text: '购物车',
+					info: 0
+				}],
+				buttonGroup: [{
+						text: '加入购物车',
+						backgroundColor: '#ff0000',
+						color: '#fff'
+					},
+					{
+						text: '立即购买',
+						backgroundColor: '#ffa200',
+						color: '#fff'
+					}
+				]
 			};
+		},
+
+		computed: {
+			...mapGetters('cart', ['total'])
 		},
 		onLoad(options) {
 			this.goodsInfo.goods_id = options.goods_id
@@ -80,7 +88,21 @@
 
 			this.getGoodsDetailList()
 		},
+		watch: {
+			total: {
+				handler(newValue) {
+					//如果total的值发生变化，这个值赋值给info属性
+					const current = this.options.find(item => item.text === '购物车')
+					if(current){
+						current.info = newValue
+					}
+					
+				},
+				immediate:true
+			}
+		},
 		methods: {
+			...mapMutations("cart", ['addCart']),
 			//获取商品详情的列表
 			async getGoodsDetailList() {
 				const {
@@ -102,25 +124,40 @@
 				})
 			},
 			//点击店铺或者购物车按钮
-			onClick(e){
-				if(e.content.text==="购物车"){
+			onClick(e) {
+				if (e.content.text === "购物车") {
 					uni.switchTab({
-						url:'/pages/cart/cart'
+						url: '/pages/cart/cart'
 					})
 				}
 			},
 			//点击加入购物车或者立即购买按钮
-			buttonClick(e){
-				
+			buttonClick(e) {
+				const goods = {
+					goods_id: this.goodsDetailList.goods_id,
+					goods_name: this.goodsDetailList.goods_name,
+					goods_count: 1,
+					goods_state: true,
+					goods_small_logo: this.goodsDetailList.goods_small_logo,
+					goods_price: this.goodsDetailList.goods_price
+				}
+				if (e.content.text === "加入购物车") {
+					this.addCart(goods)
+
+					//this.options[1].info=this.total
+					//this.saveStorage()
+				}
+
 			}
 		}
 	}
 </script>
 
 <style lang="scss">
-	.big-box{
+	.big-box {
 		padding-bottom: 50px;
 	}
+
 	.swiper {
 		height: 750rpx;
 		width: 100%;
@@ -169,7 +206,8 @@
 			color: gray;
 		}
 	}
-	.footer{
+
+	.footer {
 		position: fixed;
 		bottom: 0;
 		left: 0;

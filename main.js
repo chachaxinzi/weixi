@@ -1,4 +1,6 @@
 import App from './App'
+//引入vuex
+import store from './store/store.js'
 //第三方网络请求包
  import {$http} from "@escook/request-miniprogram"
  uni.$http = $http
@@ -19,12 +21,22 @@ import searchpage from './uni_modules/uni-search-bar/components/uni-search-bar/u
 import tag from "./uni_modules/uni-tag/components/uni-tag/uni-tag"
 import goodsNav from './uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav'
 import goodsItem from './components/goods-list-item/goods-list-item'
+import numberBox from './uni_modules/uni-number-box/components/uni-number-box/uni-number-box'
+import swipeActionItem from './uni_modules/uni-swipe-action/components/uni-swipe-action-item/uni-swipe-action-item'
+import swipeAction from './uni_modules/uni-swipe-action/components/uni-swipe-action/uni-swipe-action'
+import address from './components/my-address/my-address'
+import settle from './components/settle/settle'
 Vue.component('search',search)
 Vue.component('uni-icons',icon)
 Vue.component('uni-search-bar',searchpage)
 Vue.component('uni-tag',tag)
 Vue.component('goods-list-item',goodsItem)
 Vue.component('uni-goods-nav',goodsNav)
+Vue.component('uni-number-box',numberBox)
+Vue.component('uni-swipe-action',swipeAction)
+Vue.component('uni-swipe-action-item',swipeActionItem)
+Vue.component('my-address',address)
+Vue.component('settle',settle)
 // #ifndef VUE3
 import Vue from 'vue'
 Vue.config.productionTip = false
@@ -59,7 +71,8 @@ try {
 } catch (error) { }
 
 const app = new Vue({
-  ...App
+  ...App,
+  store
 })
 app.$mount()
 // #endif

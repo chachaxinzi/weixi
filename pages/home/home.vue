@@ -50,7 +50,9 @@
 </template>
 
 <script>
+import {mapGetters} from "vuex"
 	export default {
+	
 		data() {
 			return {
 				//轮播图数据列表
@@ -61,12 +63,29 @@
 				floorList:[]
 			};
 		},
+		computed:{
+			...mapGetters('cart',['total'])
+		},
+		onShow() {
+			this.setBage()
+		},
+		watch: {
+			total() {
+				this.setBage()
+			}
+		},
 		onLoad() {
 			this.getSwiperList()
 			this.getNavList()
 			this.getFloorList()
 		},
 		methods:{
+			setBage(){
+				uni.setTabBarBadge({
+					index:2,
+					text:this.total+''
+				})
+			},
 		async	getSwiperList(){
 		const {data:res}=	 await	uni.$http.get('/api/public/v1/home/swiperdata')
 		//处理返回的数据
